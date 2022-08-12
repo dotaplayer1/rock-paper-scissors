@@ -1,1 +1,1 @@
-a javascript program that allows you to play rock paper scissors against a computer. Meant to be played in the console.
+a javascript program that allows you to play rock paper scissors against a computer.

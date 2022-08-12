@@ -14,36 +14,91 @@
             return Math.floor(Math.random() * 3);
         }
 
-        // compares user choice vs computer choice and determines who wins
+        /* compares user choice vs computer choice and determines who wins. Returns 
+        true if human wins, false if robot wins, and null if tie. */
         function round(playerChoice, computerChoice) {
             // 0 = rock, 1 = paper, 2 = scissors.
             if ((playerChoice + computerChoice) === (playerChoice * 2)) {
-                return "Tie"
+                alert ("Tie");
+                return null;
             }
             else if (playerChoice === 0) {
                 if (computerChoice === 1) {
-                    return "You lose"
+                    alert("Opponent chose paper. You lose.");
+                    return false;
                 }
                 else {
-                    return "You win"
+                    alert("Opponent chose scissors. You win.");
+                    return true;
                 }
             }
             else if (playerChoice === 1) {
                 if (computerChoice === 2) {
-                    return "You lose"
+                    alert("Opponent chose scissors. You lose");
+                    return false;
                 }
                 else {
-                    return "You win"
+                    alert("Opponent chose rock. You win");
+                    return true;
                 }
             }
             else {
                 if (computerChoice === 0) {
-                    return "You lose"
+                    alert("Opponent chose rock. You lose");
+                    return false;
                 }
                 else {
-                    return "You win"
+                    alert("Opponent chose paper. You win");
+                    return true;
                 }
             }
+        }
+
+        // determines if user input is valid or not
+        function isValid(Choice) {
+            if ((Choice === "rock") || (Choice === "paper") || (Choice === "scissors")) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+
+        // converts user input into int
+        function choiceToInt(Choice) {
+            if (Choice === "rock") {
+                return 0;
+            }
+            else if (Choice === "paper") {
+                return 1;
+            }
+            else {
+                return 2;
+            }
+        }
+
+        // scores
+        let humanScore = 0;
+        let robotScore = 0;
+        let maxScore = 5;
+
+        // runs until someone hits 5 points
+        while ((humanScore < maxScore) && (robotScore < maxScore)) {
+            let Choice = prompt("Enter rock, paper, or scissors: ");
+            Choice.toLowerCase();
+            if (isValid(Choice)) {
+                let isWon = round(choiceToInt(Choice), getComputerChoice());              
+                if(isWon === true) {
+                    humanScore += 1;
+                }
+                else if (isWon === false) {
+                    robotScore += 1;
+                }
+                else {
+                    humanScore += 0;
+                }
+            }
+            alert("human score: " + humanScore + "  robot score: " + robotScore)
         }
     </script>
 </body>

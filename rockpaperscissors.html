@@ -7,6 +7,44 @@
     <title>Rock Paper Scissors</title>
 </head>
 <body>
-    
+    <script>
+        // randomly generates rock, paper, or scissors
+        function getComputerChoice() {          
+            // 0 = rock, 1 = paper, 2 = scissors.
+            return Math.floor(Math.random() * 3);
+        }
+
+        // compares user choice vs computer choice and determines who wins
+        function round(playerChoice, computerChoice) {
+            // 0 = rock, 1 = paper, 2 = scissors.
+            if ((playerChoice + computerChoice) === (playerChoice * 2)) {
+                return "Tie"
+            }
+            else if (playerChoice === 0) {
+                if (computerChoice === 1) {
+                    return "You lose"
+                }
+                else {
+                    return "You win"
+                }
+            }
+            else if (playerChoice === 1) {
+                if (computerChoice === 2) {
+                    return "You lose"
+                }
+                else {
+                    return "You win"
+                }
+            }
+            else {
+                if (computerChoice === 0) {
+                    return "You lose"
+                }
+                else {
+                    return "You win"
+                }
+            }
+        }
+    </script>
 </body>
 </html>
